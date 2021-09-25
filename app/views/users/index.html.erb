@@ -1,0 +1,17 @@
+<h2>Users</h2>
+<table class = "table">
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th>hontohacaradesu</th>
+    </tr>
+  </thead>
+  <% @users.each do |f| %>
+  <tbody>
+    <td><%= f.email %></td>
+    <td><%= f.name %></td>
+    <td>show</td>
+  </tbody>
+  <% end %>
+</table>

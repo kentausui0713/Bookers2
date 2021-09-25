@@ -1,0 +1,52 @@
+
+<h2>User info</h2>
+
+<p>画像</p>
+<table>
+  <tbody>
+    <tr>
+      <th>name</th>
+      <th><%= current_user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= current_user.introduction %></th>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'プロフィール編集', edit_user_path(current_user.id) %>
+
+<h2>New book</h2>
+<%= form_with model: @book,local:true do |f| %>
+ <label>Title</label>
+ <%= f.text_field :title %>
+ <label>Opinion</label>
+ <%= f.text_area :body %>
+ <%= f.submit 'Create Book' %>
+<% end %>
+
+<!--booksインデックスメインページ-->
+<div class="col-md-8 offset-md-1">
+  <h2>books</h2>
+  <table class="table table-hover table-inverse">
+    <thead>
+      <tr>
+        <th>画像</th>
+        <th>Title</th>
+        <th>Opinion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |f| %>
+       <tr>
+        <td>プロフィール画像</td>
+        <td><%= f.title %></td>
+        <td><%= f.body %></td>
+       </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
