@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :books, only: [:index, :show, :create, :edit, :update, :destroy]
 
   resources :users, only: [:index, :show, :edit, :update]
+  post "users" => "books#create"
+  post "users/:id" =>"books#create"
 end
