@@ -1,7 +1,7 @@
-
+<!--books(bookのインデックス)ページ-->
 <h2>User info</h2>
 
-<p>画像</p>
+<%= attachment_image_tag current_user, :profile_image, format: 'jpeg',fallback: "no_image.jpg", size: "100x100" %>
 <table>
   <tbody>
     <tr>
@@ -40,7 +40,7 @@
     <tbody>
       <% @books.each do |f| %>
        <tr>
-        <td>プロフィール画像</td>
+        <td><%= attachment_image_tag f.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "50x50" %></td>
         <td><%= f.title %></td>
         <td><%= f.body %></td>
        </tr>
