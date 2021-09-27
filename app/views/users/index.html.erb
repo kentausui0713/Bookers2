@@ -1,21 +1,27 @@
-<!--サイドバー-->
-<%= render 'books/sidebar', book: @book %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <!--サイドバー-->
+    <%= render 'books/sidebar', book: @book, user: @user %>
 
-<!--userのインデックスページ-->
-<h2>Users</h2>
-<table class = "table">
-  <thead>
-    <tr>
-      <th>image</th>
-      <th>name</th>
-      <th>hontohacaradesu</th>
-    </tr>
-  </thead>
-  <% @users.each do |f| %>
-  <tbody>
-    <td><%= attachment_image_tag f, :profile_image, format: "jpeg", fallback: "no_image.jpg", size: "50x50" %></td>
-    <td><%= f.name %></td>
-    <td><%= link_to 'show', user_path(f.id) %></td>
-  </tbody>
-  <% end %>
-</table>
+    <!--userのインデックスページ-->
+    <div class="col-md-8 offset-md-1">
+      <h2>Users</h2>
+      <table class = "table">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+          <% @users.each do |f| %>
+            <tbody>
+              <td><%= attachment_image_tag f, :profile_image, format: "jpeg", fallback: "no_image.jpg", size: "50x50" %></td>
+              <td><%= f.name %></td>
+              <td><%= link_to 'Show', user_path(f.id) %></td>
+            </tbody>
+          <% end %>
+        </table>
+    </div>
+  </div>
+</div>
