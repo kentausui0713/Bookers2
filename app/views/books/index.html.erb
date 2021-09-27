@@ -1,0 +1,38 @@
+<!--エラーメッセージ-->
+<% if @book.errors.any? %>
+ <h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
+ <ul>
+   <% @book.errors.full_messages.each do |message| %>
+   <li><%= message %></li>
+   <% end %>
+ </ul>
+<% end %>
+
+<!--books(bookのインデックス)ページ-->
+
+<%= render 'sidebar', book: @book %>
+
+<!--booksインデックスメインページ-->
+<div class="col-md-8 offset-md-1">
+  <h2>books</h2>
+  <table class="table table-hover table-inverse">
+    <thead>
+      <tr>
+        <th>画像</th>
+        <th>Title</th>
+        <th>Opinion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |f| %>
+       <tr>
+        <td><%= attachment_image_tag f.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "50x50" %></td>
+        <td><%= f.title %></td>
+        <td><%= f.body %></td>
+       </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+

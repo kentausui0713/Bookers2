@@ -1,0 +1,21 @@
+<!--サイドバー-->
+<%= render 'books/sidebar', book: @book %>
+
+<!--userのインデックスページ-->
+<h2>Users</h2>
+<table class = "table">
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th>hontohacaradesu</th>
+    </tr>
+  </thead>
+  <% @users.each do |f| %>
+  <tbody>
+    <td><%= attachment_image_tag f, :profile_image, format: "jpeg", fallback: "no_image.jpg", size: "50x50" %></td>
+    <td><%= f.name %></td>
+    <td><%= link_to 'show', user_path(f.id) %></td>
+  </tbody>
+  <% end %>
+</table>
